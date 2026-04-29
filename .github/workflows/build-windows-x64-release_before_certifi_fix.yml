@@ -31,7 +31,7 @@ jobs:
         shell: pwsh
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller pandas openpyxl pypdf reportlab pillow pefile certifi requests
+          pip install pyinstaller pandas openpyxl pypdf reportlab pillow pefile
 
       - name: Verify required source files
         shell: pwsh
@@ -61,7 +61,7 @@ jobs:
       - name: Build Windows x64 app
         shell: pwsh
         run: |
-          python -m PyInstaller --noconfirm --clean --onedir --windowed --name UAS_Generator_Windows --paths resources --add-data "resources;." --hidden-import certifi --hidden-import requests --collect-data certifi --exclude-module win32com --exclude-module win32com.client --exclude-module pythoncom --exclude-module pywintypes resources/app_windows_launcher.py
+          python -m PyInstaller --noconfirm --clean --onedir --windowed --name UAS_Generator_Windows --paths resources --add-data "resources;." --exclude-module win32com --exclude-module win32com.client --exclude-module pythoncom --exclude-module pywintypes resources/app_windows_launcher.py
 
       - name: Verify EXE exists and is x64
         shell: pwsh
@@ -127,4 +127,3 @@ jobs:
         with:
           name: UAS_Generator_Windows_x64_V020D18
           path: UAS_Generator_Windows_x64_V020D18.zip
-
