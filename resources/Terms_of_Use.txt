@@ -1,0 +1,158 @@
+TERMS OF USE AND SOFTWARE LICENSE AGREEMENT
+Version: 2026-04-21-v2
+Effective Date: 2026-04-21
+
+PLEASE READ THESE TERMS CAREFULLY BEFORE INSTALLING, ACCESSING, OR USING THIS SOFTWARE.
+
+By installing, launching, accessing, activating, or using this software, you agree to be bound by these Terms of Use and Software License Agreement (“Terms”). If you do not agree to these Terms, do not install, activate, access, or use the software.
+
+1. Parties and Scope
+
+This Agreement is between the software provider (“Provider”) and the individual user or purchasing entity identified during onboarding, activation, or subscription (“User”).
+
+These Terms govern the use of the software application, related scripts, automation logic, user interface, local configuration files, update mechanisms, support workflows, documentation, and any associated activation, licensing, or subscription services provided by the Provider (collectively, the “Software”).
+
+2. License; Licensed, Not Sold
+
+The Software is licensed, not sold. Subject to these Terms and to payment of all applicable fees, the Provider grants the User a limited, revocable, non-exclusive, non-transferable, non-sublicensable license to install and use the Software solely for the User’s internal professional workflow and only in accordance with the purchased subscription tier and device limits.
+
+No ownership interest in the Software is transferred to the User. All rights not expressly granted are reserved by the Provider.
+
+3. Named User; Device Limits
+
+The license is issued for a named user and may not be shared, resold, reassigned, pooled, or used as a floating license unless the Provider expressly authorizes that in writing.
+
+The Provider may enforce device limits, named-user restrictions, activation limits, subscription-tier restrictions, or device binding through license keys, local license files, remote validation, or other technical controls.
+
+Basic and Pro tiers may have different permitted device counts, support levels, or troubleshooting priority. Use beyond the licensed scope is unauthorized use.
+
+4. Subscription, Payments, Renewal, and No Refund Policy
+
+Use of the Software may require an active paid subscription. The User agrees to pay all subscription fees when due.
+
+Unless required by applicable law, all fees are non-refundable, including partial billing periods, unused time, failure to use the Software, failure to complete setup, or dissatisfaction based on preference rather than a material failure to provide the licensed software.
+
+Failure to pay, chargebacks, payment disputes, misuse, or violation of these Terms may result in suspension, pause, downgrade, expiration, or revocation of the license.
+
+5. Software Purpose; Assistive Tool Only
+
+The Software is an assistive workflow tool designed to help organize, populate, transform, and automate document preparation steps. It is not a substitute for professional judgment, clinical judgment, legal review, billing review, compliance review, documentation review, or independent user verification.
+
+The Software may prefill, arrange, transform, or calculate information, but all outputs must be independently reviewed by the User before reliance, signature, submission, distribution, storage, or use in any operational, clinical, administrative, billing, utilization, or compliance context.
+
+6. User Verification Duties
+
+The User bears sole responsibility for:
+1. confirming that all generated outputs are complete, accurate, current, and appropriate;
+2. verifying that all names, dates, identifiers, scores, frequencies, durations, and selections are correct;
+3. reviewing all generated documents before signing, certifying, submitting, or distributing them;
+4. ensuring that any statements, representations, and conclusions in generated outputs are professionally and factually supportable;
+5. correcting all errors, omissions, formatting issues, mapping issues, incomplete transfers, invisible text, rendering defects, and other defects before use.
+
+The User must not assume that a generated document is ready for signature or submission merely because it was produced successfully by the Software.
+
+7. No Professional, Clinical, Legal, Billing, or Compliance Advice
+
+The Software does not provide medical advice, nursing advice, legal advice, coding advice, reimbursement advice, utilization review determinations, or compliance determinations. The Software does not certify that any output meets payer, plan, employer, agency, regulatory, legal, billing, audit, or documentation standards.
+
+8. No Warranty; As-Is and As-Available
+
+To the maximum extent permitted by law, the Software is provided “as is” and “as available,” with all faults. The Provider disclaims all warranties, express, implied, statutory, or otherwise, including warranties of merchantability, fitness for a particular purpose, accuracy, completeness, reliability, title, non-infringement, uninterrupted operation, error-free performance, or compatibility with every template, workflow, device, export path, PDF renderer, spreadsheet engine, or operating system environment.
+
+9. Limitation of Liability
+
+To the maximum extent permitted by law, the Provider shall not be liable for any indirect, incidental, consequential, special, exemplary, punitive, or enhanced damages, including loss of revenue, loss of business, loss of contracts, loss of goodwill, downtime, interrupted workflow, rejected submissions, audit exposure, claim denials, regulatory issues, data re-entry time, reputational harm, or losses arising from inaccurate, incomplete, invisible, misrendered, malformed, or rejected outputs.
+
+To the maximum extent permitted by law, the Provider’s total aggregate liability arising out of or relating to the Software or these Terms shall not exceed the total amount actually paid by the User to the Provider for the Software during the three months immediately preceding the event giving rise to the claim.
+
+10. User Data, Privacy, and PHI Handling
+
+The Provider does not, in the ordinary license-validation flow, require remote storage of patient PHI for licensing, subscription status, or device validation purposes. The Provider may store limited account and license metadata such as user name, email, device identifier, subscription tier, license status, terms acceptance version, activation history, support status, or administrative notes.
+
+The User remains solely responsible for lawful use of PHI and other sensitive information, protecting local devices, securing exported files, restricting access to folders and outputs, and ensuring that use of the Software is permitted within the User’s employment, contractor, payer, provider, or compliance environment.
+
+11. Third-Party Forms, Templates, Trademarks, and Materials
+
+The Software may interact with, populate, transform, or export content into forms, templates, layouts, or documents that are created by or associated with third parties.
+
+The Provider does not claim ownership of third-party forms, templates, trade names, service marks, logos, branding, layouts, or other proprietary materials. All such materials remain the property of their respective owners.
+
+Use of any third-party form, trademark, layout, logo, or proprietary material remains subject to the rights of the applicable owner. Nothing in the Software or these Terms grants the User any ownership right, trademark license, reproduction right, distribution right, or reuse right in third-party materials.
+
+12. User Representations
+
+The User represents and warrants that:
+- the User has authority to use the Software in the User’s workflow;
+- the User will not use the Software in violation of employer rules, contractual obligations, privacy obligations, or law;
+- the User will not use outputs without independent review;
+- the User will not misrepresent generated outputs as having been independently verified by the Provider.
+
+13. Restrictions on Use
+
+The User must not:
+- copy, distribute, resell, sublicense, lease, rent, lend, share, host, or commercially exploit the Software except as expressly permitted;
+- allow multiple persons to use a single-user license;
+- bypass device limits, activation controls, subscription checks, or license restrictions;
+- remove or alter copyright notices, license notices, branding, or proprietary notices in the Software;
+- reverse engineer, decompile, disassemble, decrypt, derive source code from, or create derivative works from the Software except where non-waivable law expressly permits it.
+
+14. Remote Validation, Updates, and Support Access
+
+The Software may perform local or remote checks for license validity, subscription status, device count, terms version, update requirements, support eligibility, security controls, or compatibility requirements.
+
+The Provider may issue updates, suspend activation, revoke licenses, require revalidation after an offline grace period, or disable access after non-payment, misuse, fraud, chargeback, key sharing, or violation of these Terms.
+
+The Provider may also provide troubleshooting, installation help, update assistance, and support communications. Support may differ by subscription tier.
+
+15. Offline Grace Period
+
+The Software may continue to operate offline for a limited grace period after successful validation. After the grace period expires, internet connectivity may be required for revalidation. Continued offline use beyond the permitted grace period is not guaranteed.
+
+16. Suspension and Termination
+
+The Provider may suspend, limit, pause, or terminate the User’s license immediately if:
+- payment fails;
+- the subscription expires;
+- the User violates these Terms;
+- the User shares keys or devices beyond the permitted scope;
+- the User tampers with licensing mechanisms;
+- the User misuses the Software in a way that creates legal, compliance, technical, or reputational risk.
+
+Upon suspension or termination, the User must stop using the Software. Sections that by nature should survive termination shall survive, including ownership, disclaimer, liability limitation, restrictions, payment-related provisions, and enforcement terms.
+
+17. Support Scope
+
+Unless the Provider states otherwise in writing, support may include:
+- installation help;
+- activation help;
+- bug troubleshooting;
+- compatibility updates;
+- standard corrective patches.
+
+Support does not automatically include:
+- custom feature development;
+- custom template redesign;
+- custom integrations;
+- per-user workflow tailoring;
+- legal or compliance review;
+- document-by-document validation.
+
+18. Audit Trail and Administrative Metadata
+
+The Provider may retain administrative records relating to licensing, activation, device binding, support status, subscription tier, terms acceptance, and enforcement actions. Such records may be used to investigate misuse, enforce device limits, support troubleshooting, and administer subscriptions.
+
+19. Export, Storage, and Retention of Generated Files
+
+The User is solely responsible for deciding where generated outputs are saved, how long they are retained, who has access to them, and whether local storage is appropriate under the User’s contractual, privacy, employment, payer, or regulatory obligations.
+
+20. Changes to Terms
+
+The Provider may update these Terms from time to time. Continued use of the Software after a revised Terms version is presented or required for continued use constitutes acceptance of the updated Terms.
+
+21. Severability
+
+If any provision is found unenforceable, the remaining provisions remain in effect to the maximum extent permitted by law.
+
+22. Contact and Acceptance
+
+By clicking accept, entering a license key, activating a subscription, launching the Software, or using the Software, the User acknowledges that the User has read, understood, and agrees to these Terms.

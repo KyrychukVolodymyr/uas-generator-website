@@ -1,0 +1,129 @@
+﻿name: Build Windows x64 Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows-x64-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python x64
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          architecture: 'x64'
+
+      - name: Show Python architecture
+        shell: pwsh
+        run: |
+          python -c "import platform, sys; print('machine=', platform.machine()); print('architecture=', platform.architecture()); print(sys.version)"
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller pandas openpyxl pypdf reportlab pillow pefile
+
+      - name: Verify required source files
+        shell: pwsh
+        run: |
+          $required = @(
+            'resources/app_windows_launcher.py',
+            'resources/app_windows_engine.py',
+            'resources/app_windows_ui_tk.py',
+            'resources/TT_template.xlsx',
+            'resources/CDPAS_template.xlsx',
+            'resources/FRA_template.pdf',
+            'resources/anthem_logo.jpeg'
+          )
+          foreach ($f in $required) {
+            if (!(Test-Path $f)) {
+              throw "Missing required file: $f"
+            }
+          }
+
+      - name: Syntax check
+        shell: pwsh
+        run: |
+          python -m py_compile resources/app_windows_launcher.py
+          python -m py_compile resources/app_windows_engine.py
+          python -m py_compile resources/app_windows_ui_tk.py
+
+      - name: Build Windows x64 app
+        shell: pwsh
+        run: |
+          python -m PyInstaller --noconfirm --clean --onedir --windowed --name UAS_Generator_Windows --paths resources --add-data "resources;." --exclude-module win32com --exclude-module win32com.client --exclude-module pythoncom --exclude-module pywintypes resources/app_windows_launcher.py
+
+      - name: Verify EXE exists and is x64
+        shell: pwsh
+        run: |
+          $exe = 'dist/UAS_Generator_Windows/UAS_Generator_Windows.exe'
+          if (!(Test-Path $exe)) {
+            throw 'EXE was not created'
+          }
+
+          $item = Get-Item $exe
+          if ($item.Length -lt 1000000) {
+            throw "EXE too small: $($item.Length)"
+          }
+
+          python -c "import pefile; exe=r'dist/UAS_Generator_Windows/UAS_Generator_Windows.exe'; pe=pefile.PE(exe); print('PE Machine:', hex(pe.FILE_HEADER.Machine)); assert pe.FILE_HEADER.Machine == 0x8664, 'EXE is not Windows x64 AMD64'; print('PASS: EXE is Windows x64 AMD64.')"
+
+      - name: Create release ZIP
+        shell: pwsh
+        run: |
+          $zip = 'UAS_Generator_Windows_x64_V020D18.zip'
+          if (Test-Path $zip) {
+            Remove-Item $zip -Force
+          }
+          Compress-Archive -Path dist/UAS_Generator_Windows -DestinationPath $zip -Force
+          if (!(Test-Path $zip)) {
+            throw 'ZIP was not created'
+          }
+          Get-Item $zip | Select-Object FullName, Length, LastWriteTime
+
+      - name: Move ZIP into website downloads folder
+        shell: pwsh
+        run: |
+          $targetDir = 'downloads/windows-x64-v020d18'
+          New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+          Copy-Item 'UAS_Generator_Windows_x64_V020D18.zip' "$targetDir/UAS_Generator_Windows_x64_V020D18.zip" -Force
+
+      - name: Update download page to x64 ZIP
+        shell: pwsh
+        run: |
+          $p = 'public/download.html'
+          if (!(Test-Path $p)) {
+            throw 'public/download.html not found'
+          }
+
+          $t = Get-Content $p -Raw
+          $t = $t -replace '<p><b>Windows:</b>.*?</p>', '<p><b>Windows:</b> v020D18 x64</p>'
+          $t = $t -replace 'href="[^"]*UAS_Generator_Windows[^"]*\.zip"', 'href="/downloads/windows-x64-v020d18/UAS_Generator_Windows_x64_V020D18.zip"'
+          Set-Content $p $t -Encoding UTF8
+
+      - name: Commit x64 release ZIP and website link
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/windows-x64-v020d18/UAS_Generator_Windows_x64_V020D18.zip
+          git add public/download.html
+          git status
+          git commit -m "Build Windows x64 v020D18 release" || echo "No changes to commit"
+          git push
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: UAS_Generator_Windows_x64_V020D18
+          path: UAS_Generator_Windows_x64_V020D18.zip
