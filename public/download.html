@@ -1,159 +1,400 @@
-﻿<!doctype html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Download UAS Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --bg: rgb(243, 246, 250);
+      --panel: rgb(255, 255, 255);
+      --ink: rgb(15, 23, 42);
+      --muted: rgb(100, 116, 139);
+      --line: rgb(226, 232, 240);
+      --blue: rgb(37, 99, 235);
+      --green: rgb(22, 163, 74);
+      --amber: rgb(217, 119, 6);
+      --red: rgb(220, 38, 38);
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f6f7f9;
-      color: #1f2933;
+      background: var(--bg);
+      color: var(--ink);
     }
+
     header {
-      background: #111827;
+      background: linear-gradient(135deg, rgb(15, 23, 42), rgb(30, 41, 59));
       color: white;
-      padding: 26px;
+      padding: 36px 24px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 34px;
+      letter-spacing: -0.03em;
     }
+
     header p {
-      margin: 10px 0 0;
-      color: #d1d5db;
+      margin: 10px auto 0;
+      color: rgb(203, 213, 225);
       font-size: 16px;
+      max-width: 760px;
+      line-height: 1.5;
     }
+
     main {
-      max-width: 900px;
+      max-width: 980px;
       margin: 30px auto;
-      padding: 0 18px;
+      padding: 0 18px 34px;
     }
+
     .card {
       background: white;
-      border-radius: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       padding: 24px;
       margin-bottom: 18px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.06);
     }
-    .button-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 12px;
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: center;
     }
-    .download-button {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 10px;
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+    }
+
+    p {
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .price {
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin: 8px 0;
+    }
+
+    .price span {
+      font-size: 16px;
+      color: var(--muted);
       font-weight: 700;
+      letter-spacing: 0;
     }
-    .download-button:hover {
-      background: #1d4ed8;
+
+    .features {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      line-height: 1.8;
     }
-    .small {
-      color: #64748b;
-      font-size: 13px;
-    }
-    ol {
-      padding-left: 22px;
-      line-height: 1.7;
-    }
-    .notice {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+
+    .button {
+      display: inline-block;
+      border: 0;
       border-radius: 12px;
+      padding: 14px 18px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .primary:hover {
+      background: rgb(29, 78, 216);
+    }
+
+    .locked-button {
+      display: inline-block;
+      background: rgb(226, 232, 240);
+      color: rgb(71, 85, 105);
+      border: 1px solid rgb(203, 213, 225);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-weight: 800;
+      text-decoration: none;
+      margin: 8px 8px 0 0;
+      cursor: not-allowed;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .download-box {
+      background: rgb(248, 250, 252);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .locked {
+      display: inline-block;
+      background: rgb(254, 243, 199);
+      color: rgb(146, 64, 14);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: rgb(51, 65, 85);
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px;
+      border: 1px solid rgb(203, 213, 225);
+      border-radius: 12px;
+      font-size: 15px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .notice {
+      background: rgb(248, 250, 252);
+      border: 1px solid var(--line);
+      border-radius: 14px;
       padding: 14px;
       margin-top: 14px;
+      color: rgb(51, 65, 85);
+      font-size: 14px;
+      line-height: 1.5;
     }
+
     .warning {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      color: #78350f;
+      background: rgb(255, 251, 235);
+      border-color: rgb(253, 230, 138);
+      color: rgb(120, 53, 15);
     }
+
+    .success {
+      background: rgb(236, 253, 245);
+      border-color: rgb(187, 247, 208);
+      color: rgb(20, 83, 45);
+    }
+
+    .error {
+      background: rgb(254, 242, 242);
+      border-color: rgb(254, 202, 202);
+      color: rgb(153, 27, 27);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     footer {
       text-align: center;
-      color: #64748b;
+      color: var(--muted);
       padding: 22px;
       font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-card, .download-grid, .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Download UAS Generator</h1>
-    <p>Commercial UAS document generator for licensed users.</p>
+    <p>Commercial UAS document generator for licensed users. A valid monthly subscription is required before downloading and activating the application.</p>
   </header>
 
   <main>
-    <div class="card">
-      <h2>Current Versions</h2>
-      <p><b>Mac:</b> v019</p>
-      <p><b>Windows:</b> UAS Document Generator V6 x64</p>
-      <p class="small">A valid license key is required to activate the app.</p>
-
-      <div class="button-row">
-        <a class="download-button" href="/public/UAS_Generator_Mac_v019.zip">Download for Mac</a>
-        <a class="download-button" href="downloads/UASDocumentGeneratorV7.zip">Download for Windows x64</a>
+    <div class="card hero-card">
+      <div>
+        <h2>Subscription Access</h2>
+        <p>UAS Generator helps prepare commercial UAS documentation from assessment CSV files using a consistent workflow.</p>
+        <ul class="features">
+          <li>$130/month subscription</li>
+          <li>1 licensed device included</li>
+          <li>License key sent to the email used at checkout</li>
+          <li>Secure download links sent after payment</li>
+          <li>Mac v0.19 and Windows v7 are both available for licensed users</li>
+        </ul>
       </div>
 
-      <div class="notice warning">
-        <b>Important:</b> After downloading, unzip the file first. Then open the app and follow the onboarding steps.
+      <div>
+        <div class="price">$130 <span>/ month</span></div>
+        <p class="small">Monthly subscription. One device included.</p>
+        <button class="button primary" onclick="startCheckout()">Subscribe & Get License</button>
+        <div class="notice warning">
+          Direct public downloads are locked. After payment, the license key and secure download links are sent by email.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Download App</h2>
+      <p class="small">These download buttons are locked. Paid users receive active download links by email.</p>
+
+      <div class="download-grid">
+        <div class="download-box">
+          <span class="locked">Locked</span>
+          <h3>Mac Version — v0.19</h3>
+          <p>For Mac users.</p>
+          <button class="locked-button" onclick="showLockedMessage()">Download for Mac</button>
+        </div>
+
+        <div class="download-box">
+          <span class="locked">Locked</span>
+          <h3>Windows Version — v7</h3>
+          <p>For Windows x64 users.</p>
+          <button class="locked-button" onclick="showLockedMessage()">Download for Windows</button>
+        </div>
+      </div>
+
+      <div id="lockedMessage"></div>
+    </div>
+
+    <div class="card">
+      <h2>Already Paid?</h2>
+      <p>Enter the email address used during checkout. If this email has an active subscription, your license key and secure download links for Mac v0.19 and Windows v7 will be sent to that same email.</p>
+
+      <div class="form-row">
+        <div>
+          <label for="paidEmail">Email used at checkout</label>
+          <input id="paidEmail" type="email" placeholder="your@email.com">
+        </div>
+        <button class="button primary" onclick="requestDownloadLink()">Send My Download Links</button>
+      </div>
+
+      <div id="requestResult"></div>
+
+      <div class="notice">
+        For privacy, this page will not reveal whether an email is registered. If the subscription is active, the email will receive instructions.
       </div>
     </div>
 
     <div class="card">
       <h2>How to Install and Activate</h2>
       <ol>
-        <li>Download the ZIP file using one of the buttons above.</li>
-        <li>Open the ZIP file to extract the app.</li>
-        <li>For Mac: open the extracted app.</li>
-        <li>For Windows: keep the full extracted folder together and open UAS_Generator_Windows.exe.</li>
-        <li>Enter your license key when prompted.</li>
-        <li>Accept the Terms of Use.</li>
-        <li>Run System Check if available.</li>
-        <li>Run Test Generation if available.</li>
-        <li>Start normal use.</li>
+        <li>Subscribe using the email you want tied to your license.</li>
+        <li>Check your email for your license key and secure download links.</li>
+        <li>Download the correct version: Mac v0.19 or Windows v7.</li>
+        <li>Unzip the file first.</li>
+        <li>Open the app and complete onboarding.</li>
+        <li>Enter your email and license key when prompted.</li>
+        <li>Run System Check before generating documents.</li>
       </ol>
-    </div>
 
-    <div class="card">
-      <h2>License Key</h2>
-      <p>You need a valid license key to use the app.</p>
-      <p>After purchase, your license key will be provided to you. If you already received a key, use that key during app activation.</p>
-      <div class="notice">
-        Do not share your license key. Each plan has a device limit.
+      <div class="notice warning">
+        User must review all generated documents before submission. The software assists with documentation preparation and does not replace professional judgment.
       </div>
-    </div>
-
-    <div class="card">
-      <h2>Support</h2>
-      <p>If the app does not open, or activation fails, run the app's System Check and send the report to support.</p>
-      <p class="small">Support priority depends on your subscription tier.</p>
     </div>
   </main>
 
   <footer>
-    UAS Generator â€” Licensed software for authorized users.
+    UAS Generator — Licensed software for authorized users.
   </footer>
+
+<script>
+const LICENSE_SERVER_URL = "https://uas-license-server.onrender.com";
+
+function showLockedMessage() {
+  document.getElementById("lockedMessage").innerHTML = `
+    <div class="notice warning">
+      A valid subscription is required. Please subscribe first, or use “Already Paid?” to receive your secure download links by email.
+    </div>
+  `;
+}
+
+async function startCheckout() {
+  try {
+    const res = await fetch(`${LICENSE_SERVER_URL}/stripe/create-checkout-session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ plan: "basic" })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || !data.url) {
+      throw new Error(data.detail || data.message || "Checkout is not available yet.");
+    }
+
+    window.location.href = data.url;
+  } catch (err) {
+    document.getElementById("lockedMessage").innerHTML = `
+      <div class="notice error">
+        Subscription checkout is not connected yet. Please contact support.
+      </div>
+    `;
+  }
+}
+
+async function requestDownloadLink() {
+  const email = document.getElementById("paidEmail").value.trim();
+  const result = document.getElementById("requestResult");
+
+  if (!email) {
+    result.innerHTML = `<div class="notice error">Please enter the email used at checkout.</div>`;
+    return;
+  }
+
+  try {
+    await fetch(`${LICENSE_SERVER_URL}/request-download-link`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    result.innerHTML = `
+      <div class="notice success">
+        If this email has an active subscription, a license key and secure download links will be sent to that email.
+      </div>
+    `;
+  } catch (err) {
+    result.innerHTML = `
+      <div class="notice success">
+        If this email has an active subscription, a license key and secure download links will be sent to that email.
+      </div>
+    `;
+  }
+}
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
