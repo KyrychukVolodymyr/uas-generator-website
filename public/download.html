@@ -6,174 +6,205 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --bg: rgb(243, 246, 250);
-      --panel: rgb(255, 255, 255);
-      --ink: rgb(15, 23, 42);
-      --muted: rgb(100, 116, 139);
-      --line: rgb(226, 232, 240);
-      --blue: rgb(37, 99, 235);
-      --green: rgb(22, 163, 74);
-      --amber: rgb(217, 119, 6);
-      --red: rgb(220, 38, 38);
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --navy: #0f172a;
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+      --amber-text: #92400e;
+      --green-bg: #ecfdf5;
+      --green-border: #bbf7d0;
+      --green-text: #166534;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
-      color: var(--ink);
+      color: var(--text);
     }
 
-    header {
-      background: linear-gradient(135deg, rgb(15, 23, 42), rgb(30, 41, 59));
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: white;
-      padding: 36px 24px;
+      padding: 56px 20px 42px;
       text-align: center;
     }
 
-    header h1 {
+    .hero h1 {
       margin: 0;
-      font-size: 34px;
+      font-size: 46px;
+      font-weight: 800;
       letter-spacing: -0.03em;
     }
 
-    header p {
-      margin: 10px auto 0;
-      color: rgb(203, 213, 225);
-      font-size: 16px;
+    .hero p {
+      margin: 14px auto 0;
       max-width: 760px;
+      color: #cbd5e1;
+      font-size: 18px;
       line-height: 1.5;
     }
 
-    main {
-      max-width: 980px;
-      margin: 30px auto;
-      padding: 0 18px 34px;
+    .wrap {
+      max-width: 1100px;
+      margin: 28px auto 50px;
+      padding: 0 18px;
     }
 
     .card {
-      background: white;
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 18px;
-      box-shadow: 0 10px 26px rgba(15,23,42,0.06);
+      padding: 26px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      margin-bottom: 20px;
     }
 
-    .hero-card {
+    .grid-2 {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items: center;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: 23px;
-    }
-
-    h3 {
-      margin: 18px 0 8px;
-      font-size: 17px;
-    }
-
-    p {
-      line-height: 1.55;
-      font-size: 15px;
-    }
-
-    .price {
-      font-size: 44px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin: 8px 0;
-    }
-
-    .price span {
-      font-size: 16px;
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .features {
-      margin: 14px 0 0;
-      padding-left: 20px;
-      line-height: 1.8;
-    }
-
-    .button {
-      display: inline-block;
-      border: 0;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-      font-size: 15px;
-      margin-top: 10px;
-    }
-
-    .primary {
-      background: var(--blue);
-      color: white;
-    }
-
-    .primary:hover {
-      background: rgb(29, 78, 216);
-    }
-
-    .locked-button {
-      display: inline-block;
-      background: rgb(226, 232, 240);
-      color: rgb(71, 85, 105);
-      border: 1px solid rgb(203, 213, 225);
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 800;
-      text-decoration: none;
-      margin: 8px 8px 0 0;
-      cursor: not-allowed;
+      gap: 20px;
+      align-items: stretch;
     }
 
     .download-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+      line-height: 1.8;
+    }
+
+    .price {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .price span {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+    }
+
+    .btn-locked {
+      background: #e5e7eb;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      background: #e0e7ff;
+      color: #1d4ed8;
     }
 
     .download-box {
-      background: rgb(248, 250, 252);
+      background: #f8fafc;
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 18px;
+      padding: 20px;
     }
 
-    .locked {
-      display: inline-block;
-      background: rgb(254, 243, 199);
-      color: rgb(146, 64, 14);
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .notice {
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .notice-warning {
+      background: var(--amber-bg);
+      border-color: var(--amber-border);
+      color: var(--amber-text);
+    }
+
+    .notice-success {
+      background: var(--green-bg);
+      border-color: var(--green-border);
+      color: var(--green-text);
     }
 
     label {
       display: block;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 6px;
-      color: rgb(51, 65, 85);
     }
 
     input {
       width: 100%;
-      box-sizing: border-box;
-      padding: 13px;
-      border: 1px solid rgb(203, 213, 225);
+      padding: 13px 14px;
+      border: 1px solid #cbd5e1;
       border-radius: 12px;
       font-size: 15px;
     }
@@ -181,109 +212,88 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 10px;
+      gap: 12px;
       align-items: end;
-    }
-
-    .notice {
-      background: rgb(248, 250, 252);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
       margin-top: 14px;
-      color: rgb(51, 65, 85);
-      font-size: 14px;
-      line-height: 1.5;
     }
 
-    .warning {
-      background: rgb(255, 251, 235);
-      border-color: rgb(253, 230, 138);
-      color: rgb(120, 53, 15);
-    }
-
-    .success {
-      background: rgb(236, 253, 245);
-      border-color: rgb(187, 247, 208);
-      color: rgb(20, 83, 45);
-    }
-
-    .error {
-      background: rgb(254, 242, 242);
-      border-color: rgb(254, 202, 202);
-      color: rgb(153, 27, 27);
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 13px;
+    ol {
+      margin: 12px 0 0;
+      padding-left: 22px;
+      line-height: 1.9;
     }
 
     footer {
       text-align: center;
       color: var(--muted);
-      padding: 22px;
       font-size: 13px;
+      padding: 10px 20px 40px;
     }
 
-    @media (max-width: 800px) {
-      .hero-card, .download-grid, .form-row {
+    @media (max-width: 850px) {
+      .grid-2,
+      .download-grid,
+      .form-row {
         grid-template-columns: 1fr;
       }
 
-      header h1 {
-        font-size: 28px;
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .price {
+        font-size: 40px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="hero">
     <h1>Download UAS Generator</h1>
     <p>Commercial UAS document generator for licensed users. A valid monthly subscription is required before downloading and activating the application.</p>
-  </header>
+  </div>
 
-  <main>
-    <div class="card hero-card">
+  <div class="wrap">
+    <div class="card grid-2">
       <div>
         <h2>Subscription Access</h2>
-        <p>UAS Generator helps prepare commercial UAS documentation from assessment CSV files using a consistent workflow.</p>
-        <ul class="features">
-          <li>$130/month subscription</li>
+        <p>Get access to UAS Generator with a monthly subscription and receive your license key and secure download links by email.</p>
+        <ul>
+          <li>$130 per month</li>
           <li>1 licensed device included</li>
-          <li>License key sent to the email used at checkout</li>
+          <li>License key sent to your email</li>
+          <li>Mac and Windows versions available</li>
           <li>Secure download links sent after payment</li>
-          <li>Mac v0.19 and Windows v7 are both available for licensed users</li>
         </ul>
       </div>
 
       <div>
         <div class="price">$130 <span>/ month</span></div>
-        <p class="small">Monthly subscription. One device included.</p>
-        <button class="button primary" onclick="startCheckout()">Subscribe & Get License</button>
-        <div class="notice warning">
-          Direct public downloads are locked. After payment, the license key and secure download links are sent by email.
+        <p class="small">Monthly subscription for one device.</p>
+        <button class="btn btn-primary" onclick="startCheckout()">Subscribe Now</button>
+        <div class="notice notice-warning">
+          Public direct downloads are locked. After payment, your license key and download links are sent to your email.
         </div>
       </div>
     </div>
 
     <div class="card">
       <h2>Download App</h2>
-      <p class="small">These download buttons are locked. Paid users receive active download links by email.</p>
+      <p class="small">Choose your platform below. Download buttons are locked until you complete subscription or request your links by email.</p>
 
       <div class="download-grid">
         <div class="download-box">
-          <span class="locked">Locked</span>
-          <h3>Mac Version — v0.19</h3>
-          <p>For Mac users.</p>
-          <button class="locked-button" onclick="showLockedMessage()">Download for Mac</button>
+          <div class="pill">Mac</div>
+          <h3>UAS Document Generator for Mac</h3>
+          <p>For macOS users.</p>
+          <button class="btn btn-locked" onclick="showLockedMessage()">Download for Mac</button>
         </div>
 
         <div class="download-box">
-          <span class="locked">Locked</span>
-          <h3>Windows Version — v7</h3>
-          <p>For Windows x64 users.</p>
-          <button class="locked-button" onclick="showLockedMessage()">Download for Windows</button>
+          <div class="pill">Windows</div>
+          <h3>UAS Document Generator for Windows</h3>
+          <p>For Windows users.</p>
+          <button class="btn btn-locked" onclick="showLockedMessage()">Download for Windows</button>
         </div>
       </div>
 
@@ -292,20 +302,20 @@
 
     <div class="card">
       <h2>Already Paid?</h2>
-      <p>Enter the email address used during checkout. If this email has an active subscription, your license key and secure download links for Mac v0.19 and Windows v7 will be sent to that same email.</p>
+      <p>Enter the email address used during checkout. If that email has an active subscription, your license key and secure download links will be sent to that same email.</p>
 
       <div class="form-row">
         <div>
           <label for="paidEmail">Email used at checkout</label>
           <input id="paidEmail" type="email" placeholder="your@email.com">
         </div>
-        <button class="button primary" onclick="requestDownloadLink()">Send My Download Links</button>
+        <button class="btn btn-primary" onclick="requestDownloadLink()">Send My Download Links</button>
       </div>
 
       <div id="requestResult"></div>
 
       <div class="notice">
-        For privacy, this page will not reveal whether an email is registered. If the subscription is active, the email will receive instructions.
+        For privacy, this page will not reveal whether an email is registered. If the subscription is active, instructions will be sent by email.
       </div>
     </div>
 
@@ -313,88 +323,88 @@
       <h2>How to Install and Activate</h2>
       <ol>
         <li>Subscribe using the email you want tied to your license.</li>
-        <li>Check your email for your license key and secure download links.</li>
-        <li>Download the correct version: Mac v0.19 or Windows v7.</li>
-        <li>Unzip the file first.</li>
+        <li>Check your email for your license key and download links.</li>
+        <li>Download the correct version for your device.</li>
+        <li>Unzip the downloaded file first.</li>
         <li>Open the app and complete onboarding.</li>
         <li>Enter your email and license key when prompted.</li>
         <li>Run System Check before generating documents.</li>
       </ol>
-
-      <div class="notice warning">
-        User must review all generated documents before submission. The software assists with documentation preparation and does not replace professional judgment.
-      </div>
     </div>
-  </main>
+  </div>
 
   <footer>
     UAS Generator — Licensed software for authorized users.
   </footer>
 
-<script>
-const LICENSE_SERVER_URL = "https://uas-license-server.onrender.com";
+  <script>
+    const LICENSE_SERVER_URL = "https://uas-license-server.onrender.com";
 
-function showLockedMessage() {
-  document.getElementById("lockedMessage").innerHTML = `
-    <div class="notice warning">
-      A valid subscription is required. Please subscribe first, or use “Already Paid?” to receive your secure download links by email.
-    </div>
-  `;
-}
-
-async function startCheckout() {
-  try {
-    const res = await fetch(`${LICENSE_SERVER_URL}/stripe/create-checkout-session`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ plan: "basic" })
-    });
-
-    const data = await res.json();
-
-    if (!res.ok || !data.url) {
-      throw new Error(data.detail || data.message || "Checkout is not available yet.");
+    function showLockedMessage() {
+      document.getElementById("lockedMessage").innerHTML = `
+        <div class="notice notice-warning">
+          A valid subscription is required. Please subscribe first, or use the “Already Paid?” section to receive your links by email.
+        </div>
+      `;
     }
 
-    window.location.href = data.url;
-  } catch (err) {
-    document.getElementById("lockedMessage").innerHTML = `
-      <div class="notice error">
-        Subscription checkout is not connected yet. Please contact support.
-      </div>
-    `;
-  }
-}
+    async function startCheckout() {
+      try {
+        const res = await fetch(`${LICENSE_SERVER_URL}/stripe/create-checkout-session`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan: "basic" })
+        });
 
-async function requestDownloadLink() {
-  const email = document.getElementById("paidEmail").value.trim();
-  const result = document.getElementById("requestResult");
+        const data = await res.json();
 
-  if (!email) {
-    result.innerHTML = `<div class="notice error">Please enter the email used at checkout.</div>`;
-    return;
-  }
+        if (!res.ok || !data.url) {
+          throw new Error(data.detail || data.message || "Checkout is not available yet.");
+        }
 
-  try {
-    await fetch(`${LICENSE_SERVER_URL}/request-download-link`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email })
-    });
+        window.location.href = data.url;
+      } catch (err) {
+        document.getElementById("lockedMessage").innerHTML = `
+          <div class="notice notice-warning">
+            Subscription checkout is not connected yet. Please contact support.
+          </div>
+        `;
+      }
+    }
 
-    result.innerHTML = `
-      <div class="notice success">
-        If this email has an active subscription, a license key and secure download links will be sent to that email.
-      </div>
-    `;
-  } catch (err) {
-    result.innerHTML = `
-      <div class="notice success">
-        If this email has an active subscription, a license key and secure download links will be sent to that email.
-      </div>
-    `;
-  }
-}
-</script>
+    async function requestDownloadLink() {
+      const email = document.getElementById("paidEmail").value.trim();
+      const result = document.getElementById("requestResult");
+
+      if (!email) {
+        result.innerHTML = `
+          <div class="notice notice-warning">
+            Please enter the email used at checkout.
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        await fetch(`${LICENSE_SERVER_URL}/request-download-link`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
+
+        result.innerHTML = `
+          <div class="notice notice-success">
+            If this email has an active subscription, your license key and secure download links will be sent to that email.
+          </div>
+        `;
+      } catch (err) {
+        result.innerHTML = `
+          <div class="notice notice-success">
+            If this email has an active subscription, your license key and secure download links will be sent to that email.
+          </div>
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
